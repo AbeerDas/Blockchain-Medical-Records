@@ -3,14 +3,11 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 /* Import Reducers */
-import { provider, medical } from "./reducer";
+import { providerReducer } from "./reducer";
 
-const reducer = combineReducers({ provider, medical });
-
+const reducer = combineReducers({ providerReducer });
 const initialState = {};
-
 const middleware = [thunk];
-
 const store = createStore(
   reducer,
   initialState,
