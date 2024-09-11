@@ -5,6 +5,7 @@ import { loadProvider, loadNetwork } from './store/interactions';
 import { useDispatch } from "react-redux"
 import Navbar from './components/Navbar/Navbar';
 
+
 function App() {
   const dispatch = useDispatch();
   const loadBlockchainData = async () => {
