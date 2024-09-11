@@ -4,8 +4,8 @@ async function main() {
   const Medical = await ethers.getContractFactory("MedicalRecords");
   const account = await ethers.getSigners();
   const medical = await Medical.connect(account[0]).deploy();
-  await medical.waitForDeployment();
-  console.log(`Medical is deployed in address: ${await medical.getAddress()}`);
+  await medical.deployed();
+  console.log(`Medical is deployed in address: ${medical.address}`);
 }
 main()
   .then(() => process.exit(0))

@@ -1,19 +1,19 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-const privateKeys = process.env.PRIVATE_KEYS || "";
-const goerliApiKey = process.env.GOERLI_API_KEY;
-const mumbaiApiKey = process.env.MUMBAI_API_KEY;
+
+const privateKeys = process.env.PRIVATE_KEYS ? process.env.PRIVATE_KEYS.split(',') : [];
+const sepoliaApiKey = process.env.SEPOLIA_API_URL;
+
+console.log("Private Keys:", privateKeys);
+console.log("Sepolia API Key:", sepoliaApiKey);
+
 module.exports = {
   solidity: "0.8.18",
   networks: {
     localhost: {},
-    goerli: {
-      url: goerliApiKey,
-      accounts: privateKeys.split(","),
-    },
-    mumbai: {
-      url: mumbaiApiKey,
-      accounts: privateKeys.split(","),
+    sepolia: {
+      url: sepoliaApiKey,
+      accounts: privateKeys,
     },
   },
 };

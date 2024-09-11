@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect } from 'react';
 import { loadProvider, loadNetwork } from './store/interactions';
 import { useDispatch } from "react-redux"
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
   });
   return (
     <div className="App">
-      The future is blockchain.
+      <Navbar/>
     </div>
   );
 }
