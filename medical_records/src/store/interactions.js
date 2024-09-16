@@ -48,9 +48,10 @@ export const loadAccount = async (provider, dispatch) => {
         dispatch({ type: "ACCOUNT_LOADED", account });
 
         const balanceInWei = await provider.getBalance(account);
+        console.log(balance)
         const balance = ethers.utils.formatEther(balanceInWei);
         dispatch({ type: "ETHER_BALANCE_LOADED", balance });
-        const usdcContract = "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48";
+        const usdcContract = "0x5B5c010195a531a1D2C76C613dF0fF5eFA0Ca083";
         const tokenResponse = await alchemy.core.getTokenBalances(account, [usdcContract]);
 
         return account;
